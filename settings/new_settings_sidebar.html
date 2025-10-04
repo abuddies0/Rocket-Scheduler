@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        .settingbox {
+            border-radius: 8px;
+            width: auto;
+            height:auto;
+            border: 5px solid rgb(128, 0, 0);
+            padding: 10px;
+            margin: 10px;
+            background-color: rgba(255,255,255,0);
+        }
+        
+        .text {
+            color: #000000;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        .settingname {
+            color: #000000;
+            font-family: "Arial", Impact, fantasy;
+        }
+
+        .moreinfo{
+            white-space: nowrap;
+        }
+        .moreinfo:before {
+            content: '?';
+            display: inline-block;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-align: center;
+            width: 1.8ex;
+            height: 1.8ex;
+            font-size: 1.4ex;
+            line-height: 1.8ex;
+            border-radius: 1.2ex;
+            margin-right: 4px;
+            padding: 1px;
+            color: rgb(255, 0, 0);
+            background: white;
+            border: 1px solid red;
+            text-decoration: none;
+        }
+        .moreinfo:hover:before
+        {
+            color: white;
+            background: rgb(255, 0, 0);
+            border-color: white;
+            text-decoration: none;
+        }
+
+        .hiddeninfo {
+            font-size: 1.2ex;
+            color: rgb(139, 139, 139);
+            display: none;
+        }
+        .moreinfo:hover + .hiddeninfo {
+            display: inline-block;
+        }
+
+        .setting {
+            border: none;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 2px;    
+            cursor: pointer;
+            color: #ffc400;
+            background-color: rgba(255, 0, 0, 0);
+        }
+        .setting::placeholder {
+            border: none;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0px 0px;    
+            cursor: pointer;
+            color: #ff0000;
+            background-color: rgba(255, 0, 0, 0);
+        }
+
+    </style>
+    <base target="_top">
+  </head>
+  <body>
+
+    <h2>MAKE SURE TO SAVE YOUR SETTINGS!</h2>
+
+    <h3>GROUP_NAME</h3>
+    <div class="settingbox">
+        <label for="SETTING_NUMBER" class="settingname">SETTING_NAME 
+            <span class="moreinfo"></span> 
+            <div class="hiddeninfo text">SETTING_DESCRIPTION</div>
+        </label>
+        <input class="setting" type="number" id="SETTING_NUMBER" name="SETTING_NUMBER" placeholder="CURRENT_VALUE">
+        <br>
+        <label for="SETTING_BOOLEAN" class="settingname">SETTING_NAME 
+            <span class="moreinfo"></span> 
+            <div class="hiddeninfo text">SETTING_DESCRIPTION</div>
+        </label>
+        <input class="setting" type="checkbox" id="SETTING_BOOLEAN" name="SETTING_BOOLEAN" checked="CURRENT_VALUE">
+        <br>
+        <label for="SETTING_TEXT" class="settingname">SETTING_NAME 
+            <span class="moreinfo"></span> 
+            <div class="hiddeninfo text">SETTING_DESCRIPTION</div>
+        </label>
+        <input class="setting" type="text" id="SETTING_TEXT" name="SETTING_TEXT" placeholder="CURRENT_VALUE">
+    </div>
+
+    <script>
+      function changeSetting(setting) {
+        alert("Attempting to change setting for " + setting + ". \nMight take 8-10 seconds.\nPress <Ok> once you've read this message.");
+        google.script.run.changeSetting(setting);
+      }
+    </script>
+  </body>
+</html>

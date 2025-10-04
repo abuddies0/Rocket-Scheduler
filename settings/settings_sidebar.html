@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .text {
+        color: #000000;
+      }
+      .setting {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0px 0px;
+        cursor: pointer;
+        color: #ff0000;
+        background-color: rgba(255, 0, 0, 0);
+      }
+    </style>
+    <base target="_top">
+  </head>
+  <body>
+    <div class="info"></div>
+    <div class="text">Selections Sheet Name: <button onclick="changeSetting('selections_sheet_name');" class="setting" title="Click To Change">{SELECTIONS_SHEET_NAME}</button></div>
+    <div class="text">Options Sheet Name: <button onclick="changeSetting('options_sheet_name');" class="setting" title="Click To Change">{OPTIONS_SHEET_NAME}</button></div>
+    <div class="text">Output Attendee Sheet Name: <button onclick="changeSetting('output_attendee_sheet_name');" class="setting" title="Click To Change">{OUTPUT_STUDENT_SHEET_NAME}</button></div>
+    <div class="text">Output Roster Sheet Name: <button onclick="changeSetting('output_roster_sheet_name');" class="setting" title="Click To Change">{OUTPUT_ROSTER_SHEET_NAME}</button></div>
+    <div class="text">Selections Sheet Columns: 
+      <ul>
+        <li>Attendee Name: <button onclick="changeSetting('attendee_name_column');" class="setting" title="Click To Change">{STUDENT_NAME_COLUMN}</button></li>
+        <li>Attendee Preferred Name: <button onclick="changeSetting('attendee_preferred_name_column');" class="setting" title="Click To Change">{STUDENT_PREFERRED_NAME_COLUMN}</button></li>
+        <li>Attendee Email: <button onclick="changeSetting('attendee_email_column');" class="setting" title="Click To Change">{STUDENT_EMAIL_COLUMN}</button></li>
+        <li>Start of Attendee Selections: <button onclick="changeSetting('attendee_selections_column');" class="setting" title="Click To Change">{STUDENT_SELECTIONS_COLUMN}</button></li>
+        <li>Attendee Grade: <button onclick="changeSetting('attendee_grade_column');" class="setting" title="Click To Change">{STUDENT_GRADE_COLUMN}</button></li>
+        <li>Submitted Form Date: <button onclick="changeSetting('attendee_date_column');" class="setting" title="Click To Change">{STUDENT_DATE_COLUMN}</button></li>
+      </ul>
+    </div>
+    <div class="text">Options Sheet Columns: 
+      <ul>
+        <li>Name: <button onclick="changeSetting('session_name_column');" class="setting" title="Click To Change">{SESSION_NAME_COLUMN}</button></li>
+        <li>Host: <button onclick="changeSetting('session_host_column');" class="setting" title="Click To Change">{SESSION_TEACHER_COLUMN}</button></li>
+        <li>Host Email: <button onclick="changeSetting('session_host_email_column');" class="setting" title="Click To Change">{SESSION_TEACHER_EMAIL_COLUMN}</button></li>
+        <li>Max Size: <button onclick="changeSetting('session_max_size_column');" class="setting" title="Click To Change">{SESSION_MAX_SIZE_COLUMN}</button></li>
+        <li>Available Blocks: <button onclick="changeSetting('session_blocks_column');" class="setting" title="Click To Change">{SESSION_BLOCKS_COLUMN}</button></li>
+        <li>Session Length: <button onclick="changeSetting('session_length_column');" class="setting" title="Click To Change">{SESSION_LENGTH_COLUMN}</button></li>
+        <li>Room: <button onclick="changeSetting('room');" class="setting" title="Click To Change">{ROOM}</button></li>
+        <li>Can Randomly Assign: <button onclick="changeSetting('can_randomly_assign');" class="setting" title="Click To Change">{SESSION_CAN_ASSIGN_COLUMN}</button></li>
+      </ul>
+    </div>
+    <div class="text">Start Of Attendee Data ROW (not column!): <button onclick="changeSetting('attendee_data_row');" class="setting" title="Click To Change">{STUDENT_DATA_ROW}</button></div>
+    <div class="text">Start Of Session Data ROW (not column!): <button onclick="changeSetting('session_data_row');" class="setting" title="Click To Change">{SESSION_DATA_ROW}</button></div>
+    <div class="text">Number Of Classes: <button onclick="changeSetting('number_of_classes');" class="setting" title="Click To Change">{NUMBER_OF_CLASSES}</button></div>
+    <div class="text">Sessions Per Attendee: <button onclick="changeSetting('sessions_per_attendee');" class="setting" title="Click To Change">{SESSIONS_PER_STUDENT}</button></div>
+    <div class="text">Recursion Depth (if you don't understand, just leave this text alone...): <button onclick="changeSetting('recursion_depth');" class="setting" title="Click To Change">{RECURSION_DEPTH}</button></div>
+    <div class="text">Max Attempts: <button onclick="changeSetting('max_attempts');" class="setting" title="Click To Change">{MAX_ATTEMPTS}</button></div>
+    <div class="text">Range Selector Enabled: <button onclick="changeSetting('use_range_selector');" class="setting" title="Click To Change">{USE_RANGE_SELECTOR}</button></div>
+    <div class="text">Ratings From High To Low (false if low to high): <button onclick="changeSetting('rank_high_to_low');" class="setting" title="Click To Change">{RANK_HIGH_TO_LOW}</button></div>
+    <div class="text">Prioritize Balancing over High Ratings: <button onclick="changeSetting('prioritize_balancing');" class="setting" title="Click To Change">{PRIORITIZE_BALANCING}</button></div>
+
+
+    <script>
+      function changeSetting(setting) {
+        alert("Attempting to change setting for " + setting + ". \nMight take 8-10 seconds.\nPress <Ok> once you've read this message.");
+        google.script.run.changeSetting(setting);
+      }
+    </script>
+  </body>
+</html>

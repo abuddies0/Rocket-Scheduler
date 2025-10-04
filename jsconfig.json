@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "lib": ["esnext", "DOM"]
+  },
+  "include": ["events/*", "scheduler/*", "settings/*", "utils/*"]
+}

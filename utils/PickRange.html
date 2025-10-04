@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+     let grange='';
+     function selectRange()
+     {
+       $('#btn1').prop('disabled',true);
+       $('#btn2').prop('disabled',false);
+       google.script.run
+         .withSuccessHandler(setResponse)
+         .selectCurrentRange();
+     }
+     function setResponse(range)
+     {
+       grange=range;
+       let msg='You have selected the range '  + range; 
+       $('#instr').css('display','none');
+       $('#rsp').text(msg); 
+     }
+     function clearAndClose()
+     {
+       google.script.run.clearRange(grange);
+       google.script.host.close();
+
+     }
+     console.log('My Code');
+    </script>
+  </head>
+  <body>
+    <div id="rsp"></div>
+    <div id="instr">Please select your desired range. This will take ~8 seconds to process.</div>
+    <input type="button" id="btn1" value="Range Selected" onClick="selectRange();" />
+    <br /><input type="button" id="btn2" value="close" onClick="clearAndClose();"; disabled="true" />
+  </body>
+</html>
